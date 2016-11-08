@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"fmt"
+	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethdb"
 	"github.com/ethereum/go-ethereum/trie"
@@ -21,5 +21,8 @@ func makeTrieDb() (ethdb.Database, *trie.Trie) {
 }
 
 func main() {
-	makeTrieDb()
+	_, trie := makeTrieDb()
+	key := common.FromHex("0x61")
+	value := trie.Get(key)
+	fmt.Println(value)
 }
