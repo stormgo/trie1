@@ -29,8 +29,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	var itkey, itval []byte
 	for it := db.NewIterator(); it.Next(); {
-		fmt.Println("key = ", it.Key())
-		fmt.Println("value = ", it.Value())
+		itkey = it.Key()
+		itval = it.Value()
+		fmt.Println("key = ", itkey)
+		fmt.Println("value = ", itval)
 	}
 }
