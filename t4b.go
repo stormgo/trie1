@@ -12,8 +12,8 @@ func makeTrieDb() (ethdb.Database, *trie.Trie) {
 	//db, _ := ethdb.NewMemDatabase()
 	db, _ := ethdb.NewLDBDatabase("/tmp74/adba", 256, 0)
 	trie, _ := trie.New(common.Hash{}, db)
-	key := common.ParseData("a")
-	value := common.ParseData("b")
+	key := common.ParseData("c")
+	value := common.ParseData("d")
 	fmt.Println(key)
 	fmt.Println(value)
 

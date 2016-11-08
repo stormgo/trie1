@@ -23,8 +23,8 @@ func makeTrieDb() (ethdb.Database, *trie.Trie) {
 }
 
 func main() {
-	makeTrieDb()
-/*
+	// makeTrieDb()
+
 	db, err := ethdb.NewLDBDatabase("/tmp74/adba", 256, 0)
 	if err != nil {
 		panic(err)
@@ -33,5 +33,4 @@ func main() {
 		fmt.Println("key = ", it.Key())
 		fmt.Println("value = ", it.Value())
 	}
-*/
 }
