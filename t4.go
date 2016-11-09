@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/ethereum/go-ethereum/rlp"
 	"github.com/ethereum/go-ethereum/trie"
 )
 
@@ -22,6 +23,21 @@ func makeTrieDb() (ethdb.Database, *trie.Trie) {
 	return db, trie
 }
 
+func mydecode(input []byte) {
+	mycount, _ := rlp.CountValues(input)
+	fmt.Println(mycount)
+/*
+	var s string
+	err := rlp.DecodeBytes(input, &s)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	} else {
+		fmt.Printf("Decoded value: %#v\n", s)
+	}
+*/
+}
+
+
 func main() {
 	// makeTrieDb()
 
@@ -31,9 +47,14 @@ func main() {
 	}
 	var itkey, itval []byte
 	for it := db.NewIterator(); it.Next(); {
+
 		itkey = it.Key()
+		mydecode(itkey)
+
 		itval = it.Value()
-		fmt.Println("key = ", itkey)
-		fmt.Println("value = ", itval)
+		mydecode(itval)
+
+		//fmt.Println("key = ", itkey)
+		//fmt.Println("value = ", itval)
 	}
 }
